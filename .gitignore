@@ -4,6 +4,8 @@ node_modules/
 # Build output and framework caches
 dist/
 .dist/
+.output/
+.vercel/
 .tanstack/
 .vite/
 src/routeTree.gen.ts

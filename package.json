@@ -6,14 +6,9 @@
     "postinstall": "node scripts/patch-tanstack-router.mjs",
     "dev": "vite dev --host 127.0.0.1",
     "build": "vite build",
-    "start": "vite preview"
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@tanstack/react-query": "latest",
-    "@tanstack/react-router": "latest",
-    "@tanstack/react-start": "latest",
-    "react": "latest",
-    "react-dom": "latest",
     "@radix-ui/react-accordion": "latest",
     "@radix-ui/react-alert-dialog": "latest",
     "@radix-ui/react-aspect-ratio": "latest",
@@ -40,6 +35,9 @@
     "@radix-ui/react-toggle": "latest",
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
+    "@tanstack/react-query": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-start": "latest",
     "class-variance-authority": "latest",
     "clsx": "latest",
     "cmdk": "latest",
@@ -48,7 +46,9 @@
     "input-otp": "latest",
     "lenis": "latest",
     "lucide-react": "latest",
+    "react": "latest",
     "react-day-picker": "latest",
+    "react-dom": "latest",
     "react-hook-form": "latest",
     "react-icons": "latest",
     "react-resizable-panels": "latest",
@@ -61,6 +61,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "latest",
     "@vitejs/plugin-react": "latest",
+    "nitro": "^3.0.260610-beta",
     "tailwindcss": "latest",
     "typescript": "latest",
     "vite": "latest"
