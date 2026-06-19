@@ -1,0 +1,141 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-cyan-brand: var(--cyan-brand);
+  --color-teal-brand: var(--teal-brand);
+  --color-deep-teal: var(--deep-teal);
+  --color-navy-ink: var(--navy-ink);
+  --color-mist: var(--mist);
+  --color-mint: var(--mint);
+  --color-body: var(--body);
+  --color-body-muted: var(--body-muted);
+
+  --font-display: "Poppins", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-soft: 0 10px 40px -10px color-mix(in oklab, var(--teal-brand) 22%, transparent);
+  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--cyan-brand) 45%, transparent);
+}
+
+:root {
+  --radius: 1rem;
+
+  --cyan-brand: #5AD2E2;
+  --teal-brand: #15B5C4;
+  --deep-teal: #0C8FA3;
+  --navy-ink: #16243F;
+  --mist: #EEF9FB;
+  --mint: #DFF6F4;
+  --body: #2C3E54;
+  --body-muted: #6B7C93;
+
+  --background: oklch(1 0 0);
+  --foreground: #16243F;
+  --card: oklch(1 0 0);
+  --card-foreground: #16243F;
+  --popover: oklch(1 0 0);
+  --popover-foreground: #16243F;
+  --primary: #15B5C4;
+  --primary-foreground: #ffffff;
+  --secondary: #EEF9FB;
+  --secondary-foreground: #16243F;
+  --muted: #EEF9FB;
+  --muted-foreground: #6B7C93;
+  --accent: #DFF6F4;
+  --accent-foreground: #0C8FA3;
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: #ffffff;
+  --border: #d8eef2;
+  --input: #d8eef2;
+  --ring: #15B5C4;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--color-navy-ink);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility brand-gradient {
+  background: linear-gradient(135deg, #5AD2E2 0%, #15B5C4 50%, #0C8FA3 100%);
+}
+@utility brand-gradient-soft {
+  background: linear-gradient(135deg, #EEF9FB 0%, #DFF6F4 100%);
+}
+@utility text-brand-gradient {
+  background: linear-gradient(135deg, #5AD2E2 0%, #15B5C4 50%, #0C8FA3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility glass {
+  background: color-mix(in oklab, white 75%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+@utility container-90 {
+  width: 90vw;
+  max-width: 1600px;
+  margin-inline: auto;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.05); }
+}
+.blob { animation: blob-float 14s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
